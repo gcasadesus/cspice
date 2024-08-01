@@ -1,7 +1,6 @@
 #include <cspice/SpiceUsr.h>
 #include <cspice/version.h>
 
-#include <cxxopts.hpp>
 #include <iostream>
 #include <string>
 #include <unordered_map>

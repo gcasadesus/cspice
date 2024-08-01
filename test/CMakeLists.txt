@@ -17,7 +17,7 @@ include(../cmake/tools.cmake)
 include(../cmake/CPM.cmake)
 
 CPMAddPackage("gh:doctest/doctest@2.4.11")
-CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
+# CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 
 if(TEST_INSTALLED_VERSION)
   find_package(cspice REQUIRED)
