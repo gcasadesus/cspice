@@ -41,8 +41,14 @@ add_library(${PROJECT_NAME} ${headers} ${sources})
 set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD 90)
 
 # being a cross-platform target, we enforce standards conformance on MSVC
-target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
-
+target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:C,MSVC>:/permissive->")
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+    $<$<COMPILE_LANG_AND_ID:C,MSVC>:_COMPLEX_DEFINED>
+    $<$<COMPILE_LANG_AND_ID:C,MSVC>:MSDOS>
+    $<$<COMPILE_LANG_AND_ID:C,MSVC>:OMIT_BLANK_CC>
+    $<$<COMPILE_LANG_AND_ID:C,MSVC>:NON_ANSI_STDIO>
+    $<$<COMPILE_LANG_AND_ID:C,MSVC>:_CRT_DECLARE_NONSTDC_NAMES=0>
+)
 # Link dependencies target_link_libraries(${PROJECT_NAME} PRIVATE lib)
 
 target_include_directories(
